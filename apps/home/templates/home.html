@@ -1,53 +1,49 @@
 {% extends 'layout.html' %}
-
-{% block content %}
-
 {% load static %}
 
+{% block content %}
 <!-- Hero Section -->
-<header class="row bg-black">
-  <div class="col-md-4">
-    <img src="{% static 'portfolio/profile.jpeg' %}" />
+<header class="row bg-black text-white py-5 fade-in">
+  <div class="col-md-4 d-flex justify-content-center align-items-center">
+    <img src="{% static 'portfolio/profile.jpeg' %}" class="img-fluid" alt="Perfil">
   </div>
-
-  <div class="col-md-8 my-auto p-4">
-    <h1>Hola, soy <strong>Nicolás Paulo Vega.</strong></h1>
-    <h3>Soy desarrollador web backend</h3>
-    <p>
-      Tengo experiencia en diversos lenguajes de programación web, como Python, JavaScript, HTML y CSS. También manejo frameworks relacionados como Bootstrap, Django, Vue js y Tailwind CSS.
-      <br>
-      He creado este portafolio, llamado DarkPixel, con el objetivo principal de presentarte mis proyectos realizados y brindarte la oportunidad de contactarme para diseñar el aplicativo que necesites.
-      <br>
-      Actualmente, sigo formándome y perfeccionando mis habilidades. Te invito a explorar la sección de Blog, donde estaré compartiendo contenido sobre los proyectos en los que estoy trabajando y lo que estoy aprendiendo en este momento.
+  <div class="col-md-8 d-flex flex-column justify-content-center px-4 slide-in">
+    <h1 class="display-4 mb-3">Hola, soy <strong class="strong-neon-red">Nicolás Paulo Vega</strong>.</h1>
+    <h3 class="font-weight-light mb-4 strong-neon-red">Soy desarrollador web backend</h3>
+    <p class="lead mb-4">
+      Tengo experiencia en diversos lenguajes de programación web, como Python, JavaScript, HTML y CSS.
+      También manejo frameworks como Bootstrap, Django, Vue.js y Tailwind CSS. He creado este portafolio,
+      llamado DarkPixel, para presentarte mis proyectos realizados y brindarte la oportunidad de contactarme.
     </p>
-    <a class="btn btn-primary btn-lg rounded-0 my-3" href="{% static 'portfolio/cv.pdf' %}">Download my CV</a>
+    <a class="btn btn-neon-red shadow-lg" href="{% static 'portfolio/cv.pdf' %}" style="width: 200px; height: auto;">
+      <i class="bi bi-file-earmark-arrow-down"></i> Descargar CV
+    </a>      
   </div>
 </header>
 
-<!-- Porfolio Section -->
-<div class="row my-4 text-center">
-
-  <h3>Mis Proyectos</h3>
-  <p>Aquí podras ver todos y cada uno de los proyectos que he realizado en mi corto camino como desarrollador web</p>
-
-  {% for project in projects %}
-    <div class="col-md-4 p-4">
-      <div class="card bg-black card-project">
-        <img src="{{project.image.url }}" class="card-img-top" />
-
-        <div class="card-body">
-
-          <h2>{{ project.title }}</h2>
-          <p>{{ project.description }}</p>
-
+<!-- Portfolio Section -->
+<section class="container my-5">
+  <div class="text-center mb-5">
+    <h3 class="text-uppercase font-weight-bold">Mis Proyectos</h3>
+    <p class="text-muted">Aquí podrás ver todos y cada uno de los proyectos que he realizado en mi camino como desarrollador web</p>
+  </div>
+  <div class="row">
+    {% for project in projects %}
+    <div class="col-md-4 mb-4">
+      <div class="card bg-black text-white shadow-lg card-project card-bounce">
+        <img src="{{ project.image.url }}" class="card-img-top rounded-top" alt="Imagen del Proyecto">
+        <div class="card-body text-center">
+          <h4 class="card-title font-weight-bold mb-3">{{ project.title }}</h4>
+          <p class="card-text">{{ project.description }}</p>
           {% if project.url %}
-          <a href="{{project.url}}" class="btn btn-light rounded-0 btn-sm" target="__blank" rel="noreferrer">Visita el Proyecto</a>
+          <a href="{{ project.url }}" class="btn btn-neon-red btn-sm mx-auto" target="_blank" rel="noreferrer">
+            <i class="bi bi-box-arrow-up-right"></i> Visita el Proyecto
+          </a>
           {% endif %}
         </div>
       </div>
     </div>
-  {% endfor %}
-</div>
-
-
+    {% endfor %}
+  </div>
+</section>
 {% endblock %}

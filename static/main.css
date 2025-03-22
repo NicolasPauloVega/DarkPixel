@@ -1,12 +1,54 @@
 body {
-    background: #090909;
-  }
+  background: #090909;
+}
   
-  .bg-black {
-    background: #000;
-  }
+.bg-black {
+  background: #090909;
+}
   
-  .card-project:hover {
-    border: 1px solid #eee;
-    cursor: pointer;
-  }
+.card-project:hover {
+  cursor: pointer;
+}
+
+/* Botones - Estilo Neon */
+.btn-neon {
+  border: 2px solid #ff0000;
+  background-color: transparent;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.btn-neon:hover {
+  background-color: #ff0000;
+  color: white;
+  box-shadow: 0px 0px 10px 4px #ff0000;
+}
+
+/* Botón - Estilo reducido y efecto hover */
+.btn-neon-red {
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  font-size: 0.8rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-neon-red:hover {
+  transform: scale(1.1);
+  background-color: #ff0000;
+  box-shadow: 0px 0px 10px 4px #ff0000;
+  color: white;
+}
+
+/* Tarjetas de Proyectos */
+.card-project {
+  transition: transform 0.3s ease;
+}
+
+.card-project:hover {
+  transform: scale(1.05);
+}
+
+.strong-neon-red {
+  color: #ff0000;
+}
