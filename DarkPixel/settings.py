@@ -57,7 +57,7 @@ ROOT_URLCONF = 'DarkPixel.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"], # Load templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
